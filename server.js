@@ -2,6 +2,7 @@
 const express = require('express');
 const hbs = require('hbs');//another template engine.
 const fs = require('fs');
+const port = process.env.PORT || 2000; //port is either 2000 or port in environment variable.
 
 var app = express();
 hbs.registerPartials(__dirname + '/views/partials'); //register all partials that will be used.
@@ -61,6 +62,6 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(2000, () => {
-  console.log('Server listening to port 2000')
+app.listen(port, () => {
+  console.log('Server listening to port ' + port)
 });
